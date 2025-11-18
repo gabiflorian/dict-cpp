@@ -1,0 +1,211 @@
+# Build directories
+build/
+build-*/
+cmake-build-*/
+out/
+bin/
+lib/
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+CTestTestfile.cmake
+install_manifest.txt
+Makefile
+*.cmake
+!CMakeLists.txt
+!cmake/*.cmake
+
+# Compiled Object files
+*.o
+*.obj
+*.lo
+*.slo
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Compiled Static libraries
+*.a
+*.lib
+*.la
+
+# Executables
+*.exe
+*.out
+*.app
+benchmark
+example_basic
+example_parsing
+unit_tests
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Core dumps
+core
+core.*
+*.core
+
+# Test results
+Testing/
+test_results/
+*.xml
+*.log
+
+# Coverage files
+*.gcno
+*.gcda
+*.gcov
+coverage/
+*.lcov
+htmlcov/
+
+# Profiling data
+*.prof
+gmon.out
+callgrind.out.*
+perf.data
+perf.data.old
+
+# IDE and Editor files
+# VSCode
+.vscode/
+*.code-workspace
+
+# CLion
+.idea/
+cmake-build-*/
+
+# Visual Studio
+.vs/
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Xcode
+*.xcodeproj/
+*.xcworkspace/
+xcuserdata/
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+
+# Qt Creator
+*.creator
+*.creator.user
+*.includes
+*.files
+*.config
+
+# Eclipse
+.cproject
+.project
+.settings/
+
+# Vim
+*.swp
+*.swo
+*~
+.*.sw[op]
+
+# Emacs
+\#*\#
+.#*
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Backup files
+*.bak
+*.backup
+*.old
+*.tmp
+*.temp
+
+# Documentation builds
+docs/_build/
+docs/html/
+docs/latex/
+Doxyfile.bak
+doxygen_sqlite3.db
+
+# Package files
+*.tar
+*.tar.gz
+*.zip
+*.7z
+*.rar
+
+# Dependencies
+third_party/
+external/
+dependencies/
+vendor/
+_deps/
+
+# Conan
+conaninfo.txt
+conanbuildinfo.*
+conan.lock
+graph_info.json
+
+# vcpkg
+vcpkg_installed/
+
+# CPack
+_CPack_Packages/
+*.deb
+*.rpm
+*.dmg
+*.msi
+
+# Sanitizer outputs
+*.asan
+*.lsan
+*.msan
+*.tsan
+*.ubsan
+
+# Valgrind
+*.valgrind
+valgrind-*.log
+
