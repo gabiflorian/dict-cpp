@@ -4,6 +4,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![C++11](https://img.shields.io/badge/C%2B%2B-11-blue.svg)](https://en.wikipedia.org/wiki/C%2B%2B11)
+[![Multi-Arch Tests](https://github.com/gabiflorian/dict-cpp/actions/workflows/multi-arch-tests.yml/badge.svg)](https://github.com/gabiflorian/dict-cpp/actions/workflows/multi-arch-tests.yml)
 
 **dict-cpp** brings Python's flexible dictionaries to C++. Unlike other JSON libraries, dict-cpp supports **native integer keys** alongside string keys, just like Python dictionaries!
 
@@ -215,9 +216,9 @@ d["list"].push_back(4);
 
 Benchmarked against nlohmann/json on:
 - **CPU:** Intel Xeon E5-1650 v4 @ 3.60GHz (12 cores)
-- **RAM:** 62GB
+- **RAM:** 64GB
 - **OS:** Ubuntu 22.04.5 LTS
-- **Compiler:** g++ with -O2 optimization
+- **Compiler:** g++ 11.4.0 with -O2 optimization
 
 ### Benchmark Results
 

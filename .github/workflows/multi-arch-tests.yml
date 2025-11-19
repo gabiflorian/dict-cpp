@@ -1,0 +1,75 @@
+name: Multi-Architecture Tests
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  workflow_dispatch:
+
+jobs:
+  test-native:
+    name: Test on Native (x86_64)
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      
+      - name: Build Docker image (Native)
+        run: |
+          docker build -t dict-cpp-native -f Dockerfile .
+      
+      - name: Run tests (Native x86_64)
+        run: |
+          docker run --rm dict-cpp-native
+
+  test-big-endian:
+    name: Test on Big-Endian (s390x)
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+        with:
+          platforms: s390x
+      
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      
+      - name: Build Docker image (Big-Endian)
+        run: |
+          docker buildx build --platform linux/s390x -t dict-cpp-bigendian -f Dockerfile.bigendian . --load
+      
+      - name: Run tests (Big-Endian s390x)
+        run: |
+          docker run --platform linux/s390x --rm dict-cpp-bigendian
+
+  test-summary:
+    name: Test Summary
+    needs: [test-native, test-big-endian]
+    runs-on: ubuntu-latest
+    if: always()
+    
+    steps:
+      - name: Check test results
+        run: |
+          if [ "${{ needs.test-native.result }}" == "success" ] && [ "${{ needs.test-big-endian.result }}" == "success" ]; then
+            echo "✅ All tests passed on both architectures!"
+            echo "- Native (x86_64): PASSED"
+            echo "- Big-Endian (s390x): PASSED"
+            exit 0
+          else
+            echo "❌ Some tests failed:"
+            echo "- Native (x86_64): ${{ needs.test-native.result }}"
+            echo "- Big-Endian (s390x): ${{ needs.test-big-endian.result }}"
+            exit 1
+          fi
+
+
