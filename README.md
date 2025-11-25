@@ -64,11 +64,10 @@ user["scores"] = vector<int>{95, 87, 92};
 
 ## Installation
 
-### Option 1: Copy Files
-Just copy two files into your project:
+### Option 1: Header-Only (Recommended)
+Just copy `include/dict/dict.h` into your project's include directory.
 ```bash
-cp include/dict/dict.h your_project/
-cp src/dict.cpp your_project/
+cp include/dict/dict.h your_project/include/
 ```
 
 ### Option 2: CMake
@@ -76,9 +75,6 @@ cp src/dict.cpp your_project/
 add_subdirectory(dict-cpp)
 target_link_libraries(your_target dict-cpp)
 ```
-
-### Option 3: Header-Only (Coming Soon)
-Single-header version for maximum convenience.
 
 ## Usage
 
@@ -257,7 +253,7 @@ make test
 
 ### Manual
 ```bash
-g++ -std=c++11 -Wall -Wextra your_program.cpp src/dict.cpp -Iinclude -o your_program
+g++ -std=c++11 -Wall -Wextra your_program.cpp -Iinclude -o your_program
 ```
 
 ## Examples
@@ -286,8 +282,8 @@ make benchmark
 | String keys | ✅ Yes | ✅ Yes |
 | Move semantics | ✅ Yes | ✅ Yes |
 | JSON parsing | ✅ Yes | ✅ Yes |
-| Dependencies | ✅ Zero | ✅ Zero (header-only) |
-| Size | ~850 lines | ~25k lines |
+| Dependencies | ✅ Zero (header-only) | ✅ Zero (header-only) |
+| Size | ~850 lines (single header) | ~25k lines |
 | Simplicity | ✅ Easy to understand | Complex templates |
 | Performance | Competitive | Highly optimized |
 
