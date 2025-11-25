@@ -12,7 +12,7 @@
 
 - 🔑 **Integer & String Keys** - Use both! `d[0]` and `d["key"]` work together
 - 🚀 **Move Semantics** - Zero-copy operations with C++11 move semantics
-- 📦 **Zero Dependencies** - Just two files, no external libraries
+- 📦 **Zero Dependencies** - Single header file, no external libraries
 - 🎯 **Generic Arrays** - Support for int, double, string, bool, and mixed types
 - ✨ **Full JSON Support** - Parse and serialize standard JSON
 - 🛡️ **Type Safe** - Runtime type checking with `is_int()`, `is_string()`, etc.
@@ -72,8 +72,8 @@ cp include/dict/dict.h your_project/include/
 
 ### Option 2: CMake
 ```cmake
-add_subdirectory(dict-cpp)
-target_link_libraries(your_target dict-cpp)
+find_package(dict-cpp CONFIG REQUIRED)
+target_link_libraries(your_target PRIVATE dict-cpp::dict-cpp)
 ```
 
 ## Usage
