@@ -9,11 +9,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 include(FetchContent)
 
 # Library
-add_library(dict-cpp
-    src/dict.cpp
-)
+add_library(dict-cpp INTERFACE)
 
-target_include_directories(dict-cpp PUBLIC
+target_include_directories(dict-cpp INTERFACE
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include>
 )
@@ -60,9 +58,6 @@ endif()
 # Installation
 install(TARGETS dict-cpp
     EXPORT dict-cpp-targets
-    LIBRARY DESTINATION lib
-    ARCHIVE DESTINATION lib
-    RUNTIME DESTINATION bin
     INCLUDES DESTINATION include
 )
 
@@ -75,4 +70,3 @@ install(EXPORT dict-cpp-targets
     NAMESPACE dict-cpp::
     DESTINATION lib/cmake/dict-cpp
 )
-
